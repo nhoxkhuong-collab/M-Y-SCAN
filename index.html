@@ -204,7 +204,7 @@ input[type=radio],input[type=range]{accent-color:var(--pr)}
 .ctot .ghost{background:#ffffff22;border:1px solid #ffffff44;width:40px;height:40px;flex:none}
 .ctot #ctn{color:#fff;opacity:.9;font-weight:600}
 
-/* ===== BẢN SỬA: chữ rõ ở cả nền sáng và nền tối, nút ghi chữ ===== */
+/* ===== BẢN SỬA: chữ rõ ở cả nền sáng và nền tối ===== */
 :root:root{color-scheme:light dark;--bg:#f1f5f9;--card:#fff;--tx:#0f172a;--mu:#475569;--in:#e8eef7;--line:#cbd5e1;--pr:#2563eb;--ac:#1d4ed8;--bad:#b91c1c;--ok:#15803d;--wa:#b45309;--pc:#be123c;--hl:#fef08a}
 @media (prefers-color-scheme:dark){:root:root{--bg:#0b1020;--card:#18213a;--tx:#f8fafc;--mu:#cbd5e1;--in:#26324f;--line:#3d4d70;--pr:#2563eb;--ac:#93c5fd;--bad:#fca5a5;--ok:#86efac;--wa:#fcd34d;--pc:#fda4af;--hl:#5b4f12}
  .kmb h3{color:#fecdd3}.kmb h5{color:#fda4af}}
@@ -213,46 +213,33 @@ body{background:var(--bg);color:var(--tx)}
 input,select{background:var(--in);color:var(--tx);border-color:var(--line)}
 .g{background:#15803d!important}.o{background:#c2410c!important}.gr{background:#475569!important}.rd{background:#b91c1c!important}.dk{background:#1d4ed8!important}
 .a1{background:linear-gradient(135deg,#1d4ed8,#2563eb)}.a2{background:linear-gradient(135deg,#15803d,#16a34a)}.a3{background:linear-gradient(135deg,#c2410c,#ea580c)}.act small{opacity:1}
-.tbn{width:auto;height:auto;padding:9px 13px;border-radius:20px;font-size:14px;font-weight:800;white-space:nowrap;background:#ffffff33;color:#fff;box-shadow:none;flex:none}
-.tbn2{width:auto;height:auto;padding:10px 14px;border-radius:20px;font-size:14px;font-weight:800;white-space:nowrap;background:var(--card);color:var(--ac);border:1.5px solid var(--line);box-shadow:none;flex:none}
-.hd2 .tbn2{padding:8px 12px}
-.set .hd button.tbn{width:auto}
-#ses .hd{flex-wrap:wrap}#ses .hd .bk{margin-right:auto}#ses .hd #sname,#ses .hd #snin{order:9;flex:1 1 100%}
-.ctl{flex-wrap:nowrap;max-width:calc(100% - 16px)}
-.cb{width:auto;min-width:36px;padding:0 11px;font-size:14px;font-weight:800;border-radius:18px;color:#fff}
-.cb.zin{width:38px;padding:0;font-size:22px}.zv{font-size:14px;min-width:46px}
-.row2{align-items:flex-end}
-.row2 .sbtn{width:auto;min-width:64px;height:44px;padding:0 16px;font-size:16px;border-radius:14px}
-.qw{display:flex;flex-direction:column;width:90px;flex:none}.qw small{font-size:11px;font-weight:700;color:var(--mu);text-align:center;margin-bottom:2px}.row2 .qw #qty{width:100%}
 .pc,.tot{color:var(--pc);font-weight:800}
-.tbar{flex-wrap:wrap;gap:8px}.tbar .tot{font-size:18px}.tbar .rb{margin-left:auto}
-.chips2{order:3;flex:1 1 100%;flex-wrap:wrap;overflow:visible}
-.chip span{padding:7px 12px;font-size:13px;color:var(--tx)}
-.rb{width:auto;height:auto;padding:8px 11px;border-radius:10px;font-size:13px;font-weight:800;background:var(--in);color:var(--tx);border:1.5px solid var(--line);box-shadow:none;white-space:nowrap}
-.rb.del{color:var(--bad)}
-.it{flex-wrap:wrap}.ra{display:flex;gap:6px;flex:none}.ra.w3{flex-basis:100%;justify-content:flex-end}
-.grab{padding:8px 12px 10px}.grab i{margin-bottom:8px}
-.gbtn{display:flex;align-items:center;justify-content:center;width:100%;padding:12px;border-radius:14px;background:var(--pr);color:#fff;font-weight:800;font-size:15px}
-.acts{flex-wrap:wrap}.acts button{flex:1 1 45%;font-size:14px;padding:12px 6px}
-.sheet .tabs button{font-size:13.5px;font-weight:800}
 .it .m .qt,.hd2 span,.tabs button.on,.sheet .tabs button.on{color:var(--ac)}
 .it b.n,.it .m .sub,.gx small,.gt,.mu,.set summary{color:var(--mu)}
-.sheet .th,.sheet .th.gn{background:var(--in);color:var(--tx);font-size:12px}
+.sheet .th,.sheet .th.gn{background:var(--in);color:var(--tx)}
 .tm.ok{color:var(--ok)}.tm.bad{color:var(--bad)}.tm.wa{color:var(--wa)}
 .kmb h3{color:#be123c}.kmb h5{color:#881337}
-.ctot .tbn{background:#ffffff2e}
+.tbar .ib.clr{width:auto;height:34px;padding:0 11px;gap:6px;border-radius:17px;font-size:12.5px;font-weight:800;color:var(--bad);flex:none}
+.tbar .ib.clr svg{width:16px;height:16px}
+.grab{padding:12px 0 10px}.grab i{width:56px;height:6px;margin:0 auto}
+.odet{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 12px}
+.odet summary{font-weight:800;font-size:14px;color:var(--tx)}
+#ocrdetb p{margin:6px 0;font-size:12.5px;line-height:1.45;word-break:break-word;color:var(--tx);font-family:ui-monospace,Menlo,Consolas,monospace}
+#ocrdetb p.ost{color:var(--ac);font-weight:800}
+.oi{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.oi figure{margin:0;width:calc(50% - 4px)}
+.oi img{width:100%;display:block;border-radius:8px;border:1px solid var(--line);background:#fff}.oi figcaption{font-size:11.5px;color:var(--mu);margin-top:2px}
 </style></head><body>
 
 <section class="scr home on" id="home">
 <div class="topbar"><div class="brand"><b>Quét mã vạch</b><span>Kiểm kê · Scan · Test giá</span></div>
-<div class="tb2"><button class="tbn2" id="syncb" onclick="sync(1)">Đồng bộ</button><button class="tbn2" onclick="go('set')">Cài đặt</button></div></div>
+<div class="tb2"><button class="ib" id="syncb" onclick="sync(1)" aria-label="Đồng bộ online"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></button><button class="ib" onclick="go('set')" aria-label="Cài đặt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div></div>
 <div class="hm">
 <button class="act a1" onclick="go('kk')"><i><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></i><div><b>Kiểm kê hàng hóa</b><small>Quét, đếm số lượng, xuất Excel</small></div></button>
 <button class="act a2" onclick="newSes('tc')"><i><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 8v8M11 8v8M14 8v8M17 8v8"/></svg></i><div><b>Scan barcode</b><small>Ghi mã 13 số và SKU 7 số</small></div></button>
 <button class="act a3" onclick="go('price')"><i><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></i><div><b>Test giá sản phẩm</b><small>Giá, khuyến mãi, tồn kho, giỏ hàng</small></div></button>
 <div class="stat" id="stat"></div></div></section>
 
-<section class="scr" id="kk"><div class="hd"><button class="bk tbn">← Quay lại</button><span>Kiểm kê hàng hóa</span></div><div class="sc">
+<section class="scr" id="kk"><div class="hd"><button class="bk ib"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button><span>Kiểm kê hàng hóa</span></div><div class="sc">
 <button class="big" onclick="newSes('kk')">Phiên kiểm kê mới</button>
 <button class="big" onclick="contSes()">Tiếp tục phiên</button>
 <button class="big" onclick="go('list')">Danh sách phiên</button>
@@ -260,33 +247,35 @@ input,select{background:var(--in);color:var(--tx);border-color:var(--line)}
 <button class="big" onclick="delAll()">Xóa dữ liệu phiên</button>
 <button class="big" onclick="go('set')">Cài đặt</button></div></section>
 
-<section class="scr" id="ses"><div class="hd"><button class="bk tbn">← Quay lại</button><span id="sname" onclick="renameSes()"></span><input id="snin" class="nin" maxlength="60" style="display:none"><button class="tbn" onclick="go('set')">Cài đặt</button><button class="tbn" onclick="go('list')">Danh sách</button></div>
-<div class="cam" id="cam1"><div class="frame"><i></i></div><div class="ctl"><button class="cb zin" onclick="zoomBy(-1)">−</button><b class="zv">1.0×</b><button class="cb zin" onclick="zoomBy(1)">+</button><button class="cb tcb" onclick="torch()">Đèn</button><button class="cb lcb" onclick="nextLens()">Đổi cam</button></div><div class="ocrb"></div><div class="camov" onclick="enableCam()"></div></div>
-<div class="row2"><input id="code" inputmode="numeric" placeholder="Mã vừa quét / nhập tay" autocomplete="off" enterkeyhint="next"><button class="sbtn" id="codeok">Ghi</button><label class="qw"><small>Số lượng</small><input id="qty" type="number" value="1" min="1" placeholder="SL"></label></div>
+<section class="scr" id="ses"><div class="hd"><button class="bk ib"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button><span id="sname" onclick="renameSes()"></span><input id="snin" class="nin" maxlength="60" style="display:none"><button class="ib" onclick="go('set')" aria-label="Cài đặt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><button class="ib" onclick="go('list')" aria-label="Danh sách phiên"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r=".6"/><circle cx="3.5" cy="12" r=".6"/><circle cx="3.5" cy="18" r=".6"/></svg></button></div>
+<div class="cam" id="cam1"><div class="frame"><i></i></div><div class="ctl"><button class="cb zin" onclick="zoomBy(-1)">−</button><b class="zv">1.0×</b><button class="cb zin" onclick="zoomBy(1)">+</button><button class="cb tcb" onclick="torch()">🔦</button><button class="cb lcb" onclick="nextLens()">🔄</button></div><div class="ocrb"></div><div class="camov" onclick="enableCam()"></div></div>
+<div class="row2"><input id="code" inputmode="numeric" placeholder="Mã vừa quét / nhập tay" autocomplete="off" enterkeyhint="next"><button class="ib sbtn" id="codeok" aria-label="Xác nhận mã"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button><input id="qty" type="number" value="1" min="1" placeholder="SL"></div>
 <div class="ln"><span id="sp" style="color:var(--ok)">SP: -</span><span id="gia" class="pc">Giá: -</span></div>
 <div class="row" id="holdrow" style="display:none"><button class="big" id="hold" style="margin:0">✋ GIỮ ĐỂ QUÉT MÃ</button></div>
-<div class="tbar"><span class="tot" id="tot">Tổng: 0</span><button class="rb del" onclick="clr()">Xóa hết</button><div class="chips2"><label class="chip"><input type="checkbox" data-k="np"><span>Hiện tên &amp; giá</span></label><label class="chip"><input type="checkbox" data-k="sl1"><span>Số lượng tự về 1</span></label><label class="chip"><input type="checkbox" data-k="scanN"><span>Hỏi số lượng mỗi lần quét</span></label></div></div>
-<div class="panel"><div class="grab" id="grab"><i></i><div class="gbtn">▲ Xem chi tiết phiên (bấm hoặc kéo lên)</div></div><div class="sc" id="slist"></div></div>
+<div class="tbar"><span class="tot" id="tot">Tổng: 0</span>
+<div class="chips2"><label class="chip"><input type="checkbox" data-k="np"><span>Tên&amp;giá</span></label><label class="chip"><input type="checkbox" data-k="sl1"><span>SL1</span></label><label class="chip"><input type="checkbox" data-k="scanN"><span>Scan N</span></label></div>
+<button class="ib clr" onclick="clr()"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Xóa tất cả</span></button></div>
+<div class="panel"><div class="grab" id="grab"><i></i></div><div class="sc" id="slist"></div></div>
 <div class="qk" id="qk"><div class="qh"><div style="flex:1;min-width:0"><b id="qkn"></b><span class="mu" id="qks"></span></div><button class="gr" onclick="qkCancel()" style="padding:8px 12px">✕ Bỏ</button></div><div class="qv" id="qkv">0</div><div class="kp" id="qkp"></div></div></section>
 
 <section class="sheet" id="det"><div class="grab" id="grab2"><i></i></div>
-<div class="hd2"><b id="dname"></b><span id="dsum"></span><button class="tbn2" onclick="closeDet()">Đóng ✕</button></div>
-<div class="acts"><button class="o" onclick="all()">Tra giá tất cả</button><button class="g" onclick="xport(cur)">Tải Excel</button><button onclick="share()">Gửi Zalo</button><button class="dk" id="up" onclick="upload()">Gửi lên Google Sheet</button></div>
-<div class="tabs"><button class="on" id="t2" onclick="tab(2)">Tổng theo sản phẩm</button><button id="t1" onclick="tab(1)">Từng lần quét</button></div>
+<div class="hd2"><b id="dname"></b><span id="dsum"></span><button class="ib" onclick="closeDet()" aria-label="Đóng"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+<div class="acts"><button class="o" onclick="all()">Tra cứu</button><button class="g" onclick="xport(cur)">Excel</button><button onclick="share()">Zalo</button><button class="dk" id="up" onclick="upload()">Sheet</button></div>
+<div class="tabs"><button class="on" id="t2" onclick="tab(2)">CỘNG DỒN (SKU)</button><button id="t1" onclick="tab(1)">DATA THÔ (LOG)</button></div>
 <div class="sc" id="dlist" style="padding:0"></div></section>
 
-<section class="scr" id="list"><div class="hd"><button class="bk tbn">← Quay lại</button><span>Danh sách phiên</span></div><div class="sc" id="llist"></div></section>
+<section class="scr" id="list"><div class="hd"><button class="bk ib"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button><span>Danh sách phiên</span></div><div class="sc" id="llist"></div></section>
 
-<section class="scr" id="price"><div class="hd" style="background:var(--pr)"><button class="bk tbn">← Quay lại</button><span>Test giá sản phẩm</span><button class="tbn" onclick="go('set')">Cài đặt</button></div>
+<section class="scr" id="price"><div class="hd" style="background:var(--pr)"><button class="bk ib"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button><span>Test giá sản phẩm</span><button class="ib" onclick="go('set')" aria-label="Cài đặt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
 <div class="row"><input id="pq" inputmode="numeric" placeholder="Nhập mã 13 số hoặc SKU 7 số"><button id="pgo">Tìm</button></div>
 <div class="tabs" id="pmode"><button class="on" data-m="1">🔍 Tra giá</button><button data-m="2">🛒 Giỏ hàng</button></div>
 <div id="tierw" class="tier" style="display:none"><div class="chips" id="tchips"><button data-t="none">Không thẻ</button><button data-t="dong">Đồng</button><button data-t="bac">Bạc</button><button data-t="vang">Vàng</button><button data-t="bachkim">Bạch kim</button></div></div>
-<div class="cam" id="cam2"><div class="frame"><i></i></div><div class="ctl"><button class="cb zin" onclick="zoomBy(-1)">−</button><b class="zv">1.0×</b><button class="cb zin" onclick="zoomBy(1)">+</button><button class="cb tcb" onclick="torch()">Đèn</button><button class="cb lcb" onclick="nextLens()">Đổi cam</button></div><div class="ocrb"></div><div class="camov" onclick="enableCam()"></div></div>
+<div class="cam" id="cam2"><div class="frame"><i></i></div><div class="ctl"><button class="cb zin" onclick="zoomBy(-1)">−</button><b class="zv">1.0×</b><button class="cb zin" onclick="zoomBy(1)">+</button><button class="cb tcb" onclick="torch()">🔦</button><button class="cb lcb" onclick="nextLens()">🔄</button></div><div class="ocrb"></div><div class="camov" onclick="enableCam()"></div></div>
 <div class="sc"><div class="msg" id="pinfo">MÃ VẠCH: - | SKU: -</div><div id="pout"><div class="card nm">Vui lòng quét mã để kiểm tra giá...</div></div></div>
-<div id="ctot" class="ctot" style="display:none"><div class="ctl2"><span class="tl">TỔNG CỘNG</span><b id="ctv">0 VNĐ</b><small id="ctn"></small><small id="csv"></small></div><button class="tbn" onclick="cartClr()">Xóa giỏ</button></div>
+<div id="ctot" class="ctot" style="display:none"><div class="ctl2"><span class="tl">TỔNG CỘNG</span><b id="ctv">0 VNĐ</b><small id="ctn"></small><small id="csv"></small></div><button class="ib ghost" onclick="cartClr()" aria-label="Xóa giỏ hàng"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div>
 <div id="pagainw" style="padding:8px 12px"><button class="big" style="background:#0a84ff;margin:0" onclick="pagain()">⚡ QUÉT TIẾP SẢN PHẨM KHÁC</button></div></section>
 
-<section class="scr set" id="set"><div class="hd"><button class="bk tbn">← Quay lại</button><span>Cài đặt</span></div><div class="sc">
+<section class="scr set" id="set"><div class="hd"><button class="bk ib"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button><span>Cài đặt</span></div><div class="sc">
 <div class="gt">Dữ liệu</div>
 <div class="grp"><div class="gi"><div class="gx"><b>Danh mục &amp; khuyến mãi</b><small id="stat2"></small><small id="stkst"></small></div></div>
 <div class="gi two"><button onclick="sync(1)">Đồng bộ ngay</button><button class="gr" onclick="chkStk()">Kiểm tra tồn</button></div>
@@ -304,8 +293,8 @@ input,select{background:var(--in);color:var(--tx);border-color:var(--line)}
 <div class="grp"><div class="gi r"><div class="gx"><b>Test giá</b><small>Mã 13 số không có trong dữ liệu → đọc mã 7 số trên tem rồi tra khuyến mãi</small></div><input type="checkbox" data-k="ocrTest"></div>
 <div class="gi r"><div class="gx"><b>Scan barcode</b><small>Tự ghi mã 7 số vào cột SKU, không đọc được thì để trống</small></div><input type="checkbox" data-k="ocrScan"></div>
 <div class="gi r"><div class="gx"><b>Tách SKU từ mã tem nội bộ (2000…)</b><small>Dùng khi mã chưa có trong danh mục</small></div><input type="checkbox" data-k="osku"></div></div>
-<div class="gt">Độ chính xác khi quét</div>
-<div class="grp"><div class="gi r"><div class="gx"><b>Quét chắc chắn (đọc 3 lần giống nhau mới nhận)</b><small>Tránh đọc sai mã 13 số. Tắt nếu muốn quét nhanh hơn (chỉ cần 2 lần)</small></div><input type="checkbox" data-k="kkStrict"></div></div>
+<div class="gt">Kiểm kê</div>
+<div class="grp"><div class="gi r"><div class="gx"><b>Xác nhận 3 lần liên tiếp</b><small>Áp dụng cho Kiểm kê, Scan và Test giá. Chính xác tuyệt đối; tắt để quét nhanh hơn (đọc trùng 2 lần)</small></div><input type="checkbox" data-k="kkStrict"></div></div>
 <button class="big dk" style="margin-top:20px" onclick="reset()">Đặt lại mặc định</button></div></section>
 
 <dialog id="dlg"><div id="dbody"></div><button class="gr" style="width:100%;margin-top:8px" onclick="closeDlg(dlg)">Đóng</button></dialog>
@@ -346,7 +335,7 @@ function loadRows(kind,aoa){if(!aoa||!aoa.length)return 0;let hi=aoa.findIndex(r
 function chooseFile(kind){const f=document.createElement('input');f.type='file';f.accept='.xlsx,.xls,.csv';
  f.onchange=async()=>{try{const wb=XLSX.read(await f.files[0].arrayBuffer(),{type:'array'}),re=kind==='promo'?/khuyenmai|km/i:new RegExp('^'+CFG.s1+'$|^\\d{6,8}$','i');
   const n=wb.SheetNames.find(x=>re.test(x))||wb.SheetNames[0];toast('Đã nạp '+loadRows(kind,XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,raw:true,defval:''}))+' dòng từ tab '+n)}catch(e){toast('Không đọc được file')}};f.click()}
-function syncBtn(on){const b=$('syncb');if(b)b.textContent=on?'Đang tải…':'Đồng bộ'}
+function syncBtn(on){const b=$('syncb');b&&b.classList.toggle('spin',on)}
 async function sync(manual){const u=CFG.link.trim();if(!u){manual&&toast('Chưa có link dữ liệu');return}syncBtn(true);
  try{manual&&toast('Đang đồng bộ...');let A={};
   if(/\/macros\//.test(u)){A=await (await fetch(u+(u.includes('?')?'&':'?')+'sheets='+encodeURIComponent(CFG.s1+','+CFG.s2))).json()}
@@ -405,7 +394,7 @@ function haptic(ok){if(!CFG.vib)return;try{if(navigator.vibrate){navigator.vibra
  if(!HL){HL=document.createElement('label');HL.style.cssText='position:fixed;left:-99px;top:-99px;opacity:0;pointer-events:none';const i=document.createElement('input');i.type='checkbox';i.setAttribute('switch','');HL.appendChild(i);document.body.appendChild(HL)}HL.click()}catch(e){}}
 function fb(ok,k){haptic(ok);beep(k||(ok?'ok':'bad'))}
 const camMsg=t=>document.querySelectorAll('.camov').forEach(e=>{e.textContent=t;e.style.display=t?'flex':'none'});
-const ocrSt=t=>document.querySelectorAll('.ocrb').forEach(e=>{e.textContent=t;e.style.display=t?'block':'none'});
+const ocrSt=t=>{try{OCRD.st=t;detUp()}catch(e){}document.querySelectorAll('.ocrb').forEach(e=>{e.textContent=t;e.style.display=t?'block':'none'})};
 const cool=c=>c===lastC&&Date.now()-lastT<CFG.cd;
 function armScan(){const id=HS[HS.length-1];scanning=id==='price'?$('cam2').style.display!=='none':id==='ses'?!CFG.hold:false}
 function enableCam(){camMsg('');startCam().then(ok=>{if(ok)armScan()})}
@@ -490,6 +479,16 @@ document.addEventListener('visibilitychange',()=>{const id=HS[HS.length-1];if(do
    4) Phải thấy trùng ở >= 2 khung hình khác nhau, rồi đối chiếu danh mục/khuyến mãi trước khi xuất
    (Thử trên ảnh tem thật: chữ ngang cần chế độ đọc "khối" psm 6, chữ dọc cần xoay 90° với psm 11/6.) */
 let tessP=null,ocrQ=Promise.resolve(),OCRLOG='',curPsm='',TD=null;
+/* ----- nhật ký chi tiết cách máy đọc mã 7 số (hiện ngay dưới kết quả Test giá) ----- */
+let OCRD={lines:[],imgs:[],st:''};
+const PNAME={r:'Nửa phải dải trên mã vạch',q:'Nửa trái dải trên mã vạch',u:'Dải trên mã vạch',w:'Vùng rộng quanh mã (ngang)',l:'Vùng rộng quanh mã (dọc)',f:'Toàn khung quét'};
+function dlog(s){OCRD.lines.push(s);if(OCRD.lines.length>40)OCRD.lines.shift()}
+function thumb(c,l){try{const k=Math.min(1,360/c.width),t=document.createElement('canvas');t.width=Math.round(c.width*k);t.height=Math.round(c.height*k);t.getContext('2d').drawImage(c,0,0,t.width,t.height);
+ const u=t.toDataURL('image/jpeg',.7),i=OCRD.imgs.findIndex(x=>x.l===l);if(i>=0)OCRD.imgs[i].u=u;else{OCRD.imgs.push({l,u});if(OCRD.imgs.length>6)OCRD.imgs.shift()}}catch(e){}}
+function detInner(){return(OCRD.st?`<p class="ost">${esc(OCRD.st)}</p>`:'')+OCRD.lines.map(l=>`<p>${esc(l)}</p>`).join('')+(OCRLOG?`<p class="ost">Kết luận: ${esc(OCRLOG)}</p>`:'')
+ +(OCRD.imgs.length?'<div class="oi">'+OCRD.imgs.map(i=>`<figure><img src="${i.u}"><figcaption>${esc(i.l)}</figcaption></figure>`).join('')+'</div>':'')}
+const detHTML=open=>`<details class="odet"${open?' open':''}><summary>Chi tiết cách máy đọc</summary><div id="ocrdetb">${detInner()}</div></details>`;
+function detUp(){const e=$('ocrdetb');if(e)e.innerHTML=detInner()}
 const OUT={text:true,tsv:true,blocks:true};
 function worker(){return tessP=tessP||(async()=>{await new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';sc.onload=res;sc.onerror=()=>rej(new Error('không tải được bộ đọc chữ'));document.head.appendChild(sc)});
  let w;try{w=await Tesseract.createWorker('eng',1,{langPath:'https://cdn.jsdelivr.net/npm/@tesseract.js-data/eng/4.0.0_fast'})}catch(e){w=await Tesseract.createWorker('eng')}
@@ -505,7 +504,7 @@ function wordsOf(d){const o=[];if(d.words&&d.words.length)d.words.forEach(w=>o.p
  if(!o.length)String(d.text||'').split(/\s+/).filter(Boolean).forEach(t=>o.push({t,c:65}));return o}
 async function tdWords(c){const r=await TD.detect(c),o=[];r.forEach(t=>String(t.rawValue).split(/\s+/).forEach(x=>{if(x)o.push({t:x,c:90})}));return o}
 function pick(words,bc){const o=[];words.forEach(w=>{const d=String(w.t).replace(/\D/g,'');if(d.length!==7||bc.indexOf(d)>=0||w.c<60)return;if(inData(d)||d[0]==='3')o.push({k:d,c:w.c})});return o}
-function regionOf(b,k,vw,vh){const x0=b.x,y0=b.y,x1=b.x+b.w,y1=b.y+b.h,w=b.w,h=b.h,r=k==='u'?[x0-.2*w,y0-1*h,x1+.2*w,y0+.2*h]:k==='w'?[x0-.6*w,y0-2*h,x1+.6*w,y1+3*h]:[x0-.5*w,y0-1.8*h,x1+.5*w,y1+2.8*h];
+function regionOf(b,k,vw,vh){const x0=b.x,y0=b.y,x1=b.x+b.w,y1=b.y+b.h,w=b.w,h=b.h,r=k==='u'?[x0-.2*w,y0-.62*h,x1+.2*w,y0+.1*h]:k==='r'?[x0+.4*w,y0-.62*h,x1+.15*w,y0+.1*h]:k==='q'?[x0-.15*w,y0-.62*h,x0+.6*w,y0+.1*h]:k==='w'?[x0-.6*w,y0-2*h,x1+.6*w,y1+3*h]:[x0-.5*w,y0-1.8*h,x1+.5*w,y1+2.8*h];
  return[Math.max(0,r[0]),Math.max(0,r[1]),Math.min(vw,r[2]),Math.min(vh,r[3])]}
 function prep(x0,y0,sw,sh,rot){const sc=Math.min(3,Math.max(1,1100/Math.max(sw,sh))),W=Math.round(sw*sc),Hh=Math.round(sh*sc),sw2=rot%180!==0,pd=20,c=document.createElement('canvas');
  c.width=(sw2?Hh:W)+2*pd;c.height=(sw2?W:Hh)+2*pd;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.translate(c.width/2,c.height/2);g.rotate(rot*Math.PI/180);g.drawImage(v,x0,y0,sw,sh,-W/2,-Hh/2,W,Hh);
@@ -513,32 +512,36 @@ function prep(x0,y0,sw,sh,rot){const sc=Math.min(3,Math.max(1,1100/Math.max(sw,s
   const tot=c.width*c.height;let lo=0,hi=255,s=0;for(;lo<255;lo++){s+=hs[lo];if(s>tot*.02)break}s=0;for(;hi>0;hi--){s+=hs[hi];if(s>tot*.02)break}
   const k=hi-lo>20?255/(hi-lo):1,o=hi-lo>20?lo:0;for(let i=0;i<d.length;i+=4){const y=Math.max(0,Math.min(255,(d[i]-o)*k));d[i]=d[i+1]=d[i+2]=y}g.putImageData(id,0,0)}catch(e){}
  return c}
-const PASSES=[['u',0,7],['w',0,6],['u',0,6],['l',90,11],['l',90,6],['w',90,11],['w',90,6],['l',0,6],['f',0,6],['f',90,11],['w',270,11],['l',270,11],['f',270,11],['w',0,11]];
+const PASSES=[['r',0,7],['u',0,7],['q',0,7],['u',0,6],['w',0,6],['l',90,11],['l',90,6],['w',90,11],['w',90,6],['l',0,6],['f',0,6],['f',90,11],['w',270,11],['l',270,11],['f',270,11],['w',0,11]];
 let lastHit=null;const OM2={},ocrCtl={tok:0,code:''},n13=t=>/^\d{12}$/.test(t)?'0'+t:t;
 function ocrCancel(){ocrCtl.tok++;ocrCtl.code='';ocrSt('')}
 /* Đọc theo cách app Android: cùng khung hình với barcode, không bắt buộc có trong danh mục, chốt khi 2 khung hình trùng nhau.
    Tự dừng khi barcode ra khỏi khung hoặc khi quét mã khác – không bao giờ làm treo việc quét. */
-async function doOCR(bc,box,needData,my){OCRLOG='';const dead=()=>my!==ocrCtl.tok;const vw=v.videoWidth,vh=v.videoHeight;if(!vw||!stream)return'';
+async function doOCR(bc,box,needData,my){OCRLOG='';OCRD={lines:[],imgs:[],st:''};const dead=()=>my!==ocrCtl.tok;const vw=v.videoWidth,vh=v.videoHeight;if(!vw||!stream)return'';
  if(TD===null){try{TD='TextDetector' in window?new TextDetector():false}catch(e){TD=false}}
  let w=null;if(!TD){ocrSt(tessP?'🔎 Đang đọc mã 7 số trên tem…':'⏳ Đang chuẩn bị bộ đọc chữ… (lần đầu vài giây)');w=await workerT();if(dead())return''}
+ if(TD)dlog('Bộ đọc chữ: của điện thoại');else if(w)dlog('Bộ đọc chữ: Tesseract (đã sẵn sàng)');detUp();
  const RC=document.createElement('canvas'),votes={},best={},t0=Date.now();let b=box||{x:vw*.3,y:vh*.4,w:vw*.4,h:vh*.15},hit=lastHit,lastOk=Date.now(),tdEmpty=0;
  for(let a=0;a<40&&Date.now()-t0<15000&&!dead();a++){
   ocrSt('🔎 Đang đọc mã 7 số trên tem… giữ yên tem trong khung');
   const RO=roi();let ok=false;try{if(RO){const d=await decodeROI(RO,RC);if(d&&n13(d.t)===bc){b=d.box;ok=true;lastOk=Date.now()}}}catch(e){}
   if(dead())return'';
-  if(!ok&&Date.now()-lastOk>1500){OCRLOG='Barcode đã ra khỏi khung';break}
+  dlog('Lần '+(a+1)+': '+(ok?'thấy mã vạch trong khung':'không thấy mã vạch trong khung'));detUp();
+  if(!ok&&Date.now()-lastOk>1500){OCRLOG='Barcode đã ra khỏi khung';dlog('Mã vạch ra khỏi khung → dừng đọc');break}
   const fr={},order=hit?[hit].concat(PASSES.filter(p=>p!==hit)):PASSES;let got=false,anyWord=false;
   for(const p of order){if(Date.now()-t0>15000)break;const R=p[0]==='f'?(RO?[RO.x,RO.y,RO.x+RO.w,RO.y+RO.h]:null):regionOf(b,p[0],vw,vh);if(!R||R[2]-R[0]<50||R[3]-R[1]<30)continue;
    const c=prep(R[0],R[1],R[2]-R[0],R[3]-R[1],p[1]);let words;
    if(TD)words=await tdWords(c);else{await setPsm(w,p[2]);let r;try{r=await w.recognize(c,{},OUT)}catch(e){r=await w.recognize(c)}words=wordsOf(r.data)}
    if(dead())return'';if(words.length)anyWord=true;
+   dlog((PNAME[p[0]]||p[0])+' · xoay '+p[1]+'° · psm '+p[2]+' → '+(words.length?words.map(x=>{const d=String(x.t).replace(/\D/g,'');return'"'+x.t+'" '+Math.round(x.c)+'%'+(d.length===7?(bc.indexOf(d)>=0?' ✗ trùng mã vạch':x.c<60?' ✗ tin cậy thấp':(inData(d)||d[0]==='3')?' ✓ hợp lệ':' ✗ không có trong danh mục'):' ('+d.length+' số)')}).join(' | '):'không thấy chữ'));
+   thumb(c,(PNAME[p[0]]||p[0])+' · '+p[1]+'°');detUp();
    pick(words,bc).forEach(o=>{if(!fr[o.k]){fr[o.k]=1;votes[o.k]=(votes[o.k]||0)+1}best[o.k]=Math.max(best[o.k]||0,o.c);got=true;hit=p});
    if(got)break}
   if(TD&&!anyWord&&++tdEmpty>=3){TD=false;try{w=await workerT()}catch(e){}}   /* bộ đọc của máy không trả gì → chuyển sang Tesseract */
   if(!got)hit=null;
   let win=null;for(const k in votes){if(votes[k]>=2&&best[k]>=60&&(!win||votes[k]>votes[win]))win=k}
   if(!win){for(const k in votes){if(inData(k)&&best[k]>=80){win=k;break}}}
-  if(win){lastHit=hit;return win}
+  if(win){dlog('✓ Chốt SKU '+win+' (thấy '+votes[win]+' lần, tin cậy '+Math.round(best[win])+'%)');detUp();lastHit=hit;return win}
   await sleep(40)}
  if(!OCRLOG){const ks=Object.keys(votes);OCRLOG=ks.length?'Đã thấy: '+ks.map(k=>k+' ×'+votes[k]).join(', ')+' (chưa đủ 2 lần trùng)':'Không thấy mã 7 số nào đứng riêng'}return''}
 const resolve7=(bc,box,needData)=>{const my=++ocrCtl.tok;ocrCtl.code=bc;return doOCR(bc,box,needData,my).catch(e=>{if(my===ocrCtl.tok)OCRLOG='Lỗi bộ đọc chữ: '+(e&&e.message||e)+' (lần đầu cần mạng để tải)';return''}).then(r=>{if(my===ocrCtl.tok){ocrCtl.code='';ocrSt('')}return r})};
@@ -559,14 +562,16 @@ let showSeq=0;
 function drawBc(){try{const b=$('bc');b&&JsBarcode(b,b.dataset.v,{format:'EAN13',height:60,displayValue:false,margin:0,width:2})}catch(e){const b=$('bc');b&&b.remove()}}
 async function showP(c,box){const seq=++showSeq,is13=/^\d{13}$/.test(c);let L=lookup(c),tried=false;clearTimeout(idleT);$('pq').value='';$('pq').blur();
  if(!L.found&&!L.sku&&is13&&CFG.ocrTest&&box&&stream){tried=true;$('pinfo').textContent='MÃ VẠCH: '+c+' | đang đọc mã 7 số…';
-  $('pout').innerHTML=card(L)+'<div class="mu" style="text-align:center;margin-top:8px">🔎 Đang đọc mã 7 số trên tem… giữ yên tem (hoặc quét mã khác để bỏ qua)</div>';drawBc();
+  OCRD={lines:[],imgs:[],st:'Đang đọc tự động…'};$('pout').innerHTML=card(L)+m7html(c,'Máy đang tự thử đọc 7 số trên tem – giữ yên tem, hoặc gõ luôn vào ô dưới.')+detHTML(true);drawBc();
   const sku=await resolve7(c,box,false);if(seq!==showSeq)return;if(sku){rememberSku(c,sku);L=lookup(c);L.viaOcr=true}}
  scanning=false;$('cam2').style.display='none';idleT=setTimeout(stopCam,20000);
  $('pinfo').textContent=`MÃ VẠCH: ${is13?c:(L.cat&&L.cat.b)||'-'} | SKU: ${L.sku||'-'}${L.viaOcr?' (đọc từ tem)':''}`;
- $('pout').innerHTML=card(L)+(tried&&!L.sku?m7html(c,OCRLOG):'');
+ const keep=($('m7')||{}).value||'',need7=!L.found&&!L.sku&&is13;
+ $('pout').innerHTML=card(L)+(need7?m7html(c,tried?'Máy chưa đọc chắc được 7 số trên tem.':''):'')+(tried?detHTML(!L.sku):'');
+ if(keep&&$('m7')){$('m7').value=keep;try{$('m7').focus()}catch(e){}}
  drawBc();fb(L.found||!!L.sku,L.viaOcr?'sku':undefined)}
-const m7html=(c,why)=>`<div class="card"><div class="nm">Nhập 7 số trên tem</div><div class="mu" style="margin-bottom:8px">Máy chưa đọc được mã 7 số${why?' ('+esc(why)+')':''}. Gõ 7 số in trên tem vào đây:</div><div class="row" style="padding:0"><input id="m7" inputmode="numeric" maxlength="7" placeholder="Ví dụ 3615258"><button onclick="m7go('${esc(c)}')">Tra giá</button></div></div>`;
-function m7go(c){const s=($('m7').value||'').replace(/\D/g,'');if(s.length!==7)return toast('Cần đúng 7 chữ số');rememberSku(c,s);showP(c)}
+const m7html=(c,note)=>`<div class="card"><div class="nm">Mã này chưa có trong danh mục</div><div class="mu" style="margin-bottom:8px">Hãy nhập SKU 7 số in trên tem để tra giá.${note?'<br>'+esc(note):''}</div><div class="row" style="padding:0"><input id="m7" inputmode="numeric" maxlength="7" placeholder="SKU 7 số, ví dụ 3615258" onkeydown="if(event.key==='Enter')m7go('${esc(c)}')"><button onclick="m7go('${esc(c)}')">Tra giá</button></div></div>`;
+function m7go(c){const s=($('m7').value||'').replace(/\D/g,'');if(s.length!==7)return toast('Cần đúng 7 chữ số');ocrCancel();rememberSku(c,s);showP(c)}
 function onPrice(c,box){if(ocrCtl.code===c)return;if(ocrCtl.code)ocrCancel();PM===2?cartAdd(c,0,box):showP(c,box)}
 function pagain(){showSeq++;ocrCancel();$('pq').value='';$('pinfo').textContent='MÃ VẠCH: - | SKU: -';$('pout').innerHTML='<div class="card nm">Vui lòng quét mã để kiểm tra giá...</div>';resume()}
 $('pgo').onclick=()=>{const c=$('pq').value.trim();if(!c)return;if(PM===2){cartAdd(c,1);$('pq').value=''}else showP(c)};$('pq').onkeydown=e=>{if(e.key==='Enter')$('pgo').click()};
@@ -599,19 +604,19 @@ $('code').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();codeSubmit()}};$(
 $('qty').onkeydown=e=>{if(e.key==='Enter'&&askBusy&&QK.manual){e.preventDefault();manualDone()}};
 const hb=$('hold');['pointerdown','touchstart'].forEach(e=>hb.addEventListener(e,ev=>{ev.preventDefault();scanning=true;hb.style.background='#16a34a'}));
 ['pointerup','pointerleave','touchend','touchcancel'].forEach(e=>hb.addEventListener(e,()=>{scanning=false;hb.style.background=''}));
-const PEN='<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',TRS='<svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+const TAG='<svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>';const PEN='<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',TRS='<svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
 function rowHTML(r,i,hl){const L=lookup(r.c),tc=r.b!==undefined,nm=CFG.np?(L.found?esc(L.name)+(L.price?' · '+fmt(L.price):''):'<span class="bad">Không có trong danh mục</span>'):'';
  const sub=[tc?'SKU '+esc(r.s||'—'):'',nm].filter(Boolean).join(' · ');
- return`<div class="it${hl?' new':''}"><b class="n">${i+1}</b><div class="m"><b class="cd${hl?' hl':''}">${esc(tc?(r.b||r.c):r.c)}</b><span class="qt">×${r.q}</span>${sub?`<span class="sub">${sub}</span>`:''}</div><div class="ra${tc&&!r.s?' w3':''}"><button class="rb" data-e="${i}">Sửa SL</button>${tc&&!r.s?`<button class="rb" data-s="${i}">Nhập SKU</button>`:''}<button class="rb del" data-d="${i}">Xóa</button></div></div>`}
+ return`<div class="it${hl?' new':''}"><b class="n">${i+1}</b><div class="m"><b class="cd${hl?' hl':''}">${esc(tc?(r.b||r.c):r.c)}</b><span class="qt">×${r.q}</span>${sub?`<span class="sub">${sub}</span>`:''}</div><button class="ic" data-e="${i}">${PEN}</button>${tc&&!r.s?`<button class="ic" data-s="${i}">${TAG}</button>`:''}<button class="ic" data-d="${i}">${TRS}</button></div>`}
 function bindRows(el,s){const re=()=>el===$('slist')?renderS():renderD();el.onclick=e=>{const b=e.target.closest('button');if(!b)return;
- if(b.dataset.d!==undefined){if(confirm('Xóa dòng này?')){s.rows.splice(+b.dataset.d,1);saveSS();re()}}
+ if(b.dataset.d!==undefined){s.rows.splice(+b.dataset.d,1);saveSS();re()}
  else if(b.dataset.e!==undefined){const r=s.rows[+b.dataset.e],q=prompt('Số lượng cho '+r.c,r.q);if(q&&+q>0){r.q=+q;saveSS();re()}}
- else if(b.dataset.s!==undefined){const r=s.rows[+b.dataset.s],q=prompt('Gõ 7 số SKU in trên tem (ví dụ 3615258)','');if(q===null)return;const d=q.replace(/\D/g,'');if(d.length===7){r.s=d;rememberSku(r.c,d);saveSS();re()}else toast('Cần đúng 7 chữ số')}}}
+ else if(b.dataset.s!==undefined){const r=s.rows[+b.dataset.s],q=prompt('Nhập SKU 7 số in trên tem','');if(q===null)return;const d=q.replace(/\D/g,'');if(d.length===7){r.s=d;rememberSku(r.c,d);saveSS();re()}else toast('Cần đúng 7 chữ số')}}}
 function renderS(){const s=cur;$('sname').textContent=s.name;$('tot').textContent='Tổng: '+s.rows.reduce((a,r)=>a+r.q,0);
  const el=$('slist');el.innerHTML=s.rows.map((r,i)=>rowHTML(r,i,i===s.rows.length-1)).reverse().join('');bindRows(el,s)}
 function agg(s){const m=new Map();s.rows.forEach(r=>{const L=lookup(r.c),sk=r.s||L.sku,k=sk||r.c;const o=m.get(k)||{k,sku:sk,n:L.name||'(không có trong DM)',q:0,p:L.price,l:L};o.q+=r.q;m.set(k,o)});return Array.from(m.values())}
 function renderD(){const s=cur,A=agg(s);$('dname').textContent=s.name;$('dsum').textContent=`${A.length} SKU | SL: ${s.rows.reduce((a,r)=>a+r.q,0)}`;$('up').style.display=/\/macros\//.test(CFG.link)?'':'none';const el=$('dlist');
- if(tabN===1){el.innerHTML=`<div class="th"><span style="width:30px">STT</span><span style="flex:1">Mã vạch / Tên hàng</span><span>SL</span></div>`+s.rows.map((r,i)=>rowHTML(r,i,i===s.rows.length-1)).reverse().join('');bindRows(el,s)}
+ if(tabN===1){el.innerHTML=`<div class="th"><span style="width:42px">STT</span><span style="flex:1">Barcode / Tên hàng</span><span>Qty</span></div>`+s.rows.map((r,i)=>rowHTML(r,i,i===s.rows.length-1)).reverse().join('');bindRows(el,s)}
  else{el.onclick=null;el.innerHTML=`<div class="th gn"><span style="width:80px">SKU</span><span style="flex:1">Tên sản phẩm</span><span style="width:40px">Tổng</span><span style="width:76px;text-align:right">Đơn giá</span></div>`+A.map(o=>`<div class="it"><b style="width:80px;color:var(--ac)">${esc(o.sku||'-')}</b><span class="m">${esc(o.n)}</span><b style="width:40px;color:var(--bad);font-size:20px">${o.q}</b><b style="width:76px;text-align:right;color:var(--ok)">${o.p?o.p.toLocaleString('vi-VN'):'-'}</b></div>`).join('')}}
 function tab(n){tabN=n;$('t1').className=n===1?'on':'';$('t2').className=n===2?'on':'';renderD()}
 function renameSes(){if(!cur)return;const sp=$('sname'),inp=$('snin');inp.value=cur.name;sp.style.display='none';inp.style.display='block';inp.focus();inp.select()}
@@ -678,7 +683,7 @@ async function cartAdd(c,force,box){c=String(c).trim();if(!c)return;if(!force&&c
  const k=L.sku||c;let r=CART.find(x=>x.k===k);if(r)r.q++;else CART.unshift({k,c,q:1});fb(L.found||!!L.sku);kv('cart',CART);renderCart()}
 function renderCart(){let tot=0,cnt=0,sav=0;const tier=CFG.tier||'none';
  const h=CART.map((r,i)=>{const L=lookup(r.c),cc=calc(L,r.q,tier);tot+=cc.t;cnt+=r.q;sav+=Math.max(0,(L.list||0)*r.q-cc.t);
-  return`<div class="ci"><div class="cm"><b class="${L.found?'':'bad'}">${esc(L.found?L.name:'Không có: '+r.c)}</b><div class="mu">${esc(L.sku||r.c)} · ${L.list?fmt(L.list):'-'}${cc.note?` · <span style="color:var(--bad)">${esc(cc.note)}</span>`:''}</div>${stk(L.sku)}</div><div class="cq"><button data-i="${i}" data-a="-">−</button><b>${r.q}</b><button data-i="${i}" data-a="+">+</button></div><div class="cp"><span>${fmt(cc.t)}</span><button class="rb del" data-i="${i}" data-a="x">Xóa</button></div></div>`}).join('');
+  return`<div class="ci"><div class="cm"><b class="${L.found?'':'bad'}">${esc(L.found?L.name:'Không có: '+r.c)}</b><div class="mu">${esc(L.sku||r.c)} · ${L.list?fmt(L.list):'-'}${cc.note?` · <span style="color:var(--bad)">${esc(cc.note)}</span>`:''}</div>${stk(L.sku)}</div><div class="cq"><button data-i="${i}" data-a="-">−</button><b>${r.q}</b><button data-i="${i}" data-a="+">+</button></div><div class="cp"><span>${fmt(cc.t)}</span><button class="ic" data-i="${i}" data-a="x">${TRS}</button></div></div>`}).join('');
  $('pout').innerHTML=CART.length?h:'<div class="card nm">🛒 Giỏ trống – quét mã để thêm sản phẩm</div>';
  $('ctn').textContent=`${CART.length} SP · SL ${cnt}`+(tier!=='none'?' · Thẻ '+TIERS[tier]:'');$('ctv').textContent=fmt(tot);$('csv').textContent=sav>0?'Tiết kiệm '+fmt(sav):''}
 $('pout').onclick=e=>{const b=e.target.closest('button[data-a]');if(!b||PM!==2)return;const i=+b.dataset.i,r=CART[i];if(b.dataset.a==='+')r.q++;else if(b.dataset.a==='-'){if(--r.q<1)CART.splice(i,1)}else CART.splice(i,1);kv('cart',CART);renderCart()};
