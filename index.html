@@ -493,14 +493,15 @@ document.addEventListener('visibilitychange',()=>{const id=HS[HS.length-1];if(do
    4) Phải thấy trùng ở >= 2 khung hình khác nhau, rồi đối chiếu danh mục/khuyến mãi trước khi xuất
    (Thử trên ảnh tem thật: chữ ngang cần chế độ đọc "khối" psm 6, chữ dọc cần xoay 90° với psm 11/6.) */
 let tessP=null,ocrQ=Promise.resolve(),OCRLOG='',curPsm='',TD=null;
-let OCRD={lines:[],imgs:[],toks:[],steps:{},st:'',t0:0,iv:0,vt:''},ENGS={s:'wait',t:'Chưa tải (tự tải khi mở app)'},shownIv=-1;
+let ENGL=[],OCRD={lines:[],imgs:[],toks:[],steps:{},st:'',t0:0,iv:0,vt:''},ENGS={s:'wait',t:'Chưa tải (tự tải khi mở app)'},shownIv=-1;
 const PNAME={w:'Vùng rộng quanh mã vạch',l:'Vùng gần mã vạch',f:'Toàn khung quét'};
 const STP=[['eng','1. Bộ đọc chữ'],['bar','2. Mã vạch'],['crop','3. Vùng ảnh'],['read','4. Đọc chữ'],['res','5. Kết quả']];
 const ICO={ok:'✓',bad:'✗',run:'…',wait:'○'};
 function stp(k,s,t){OCRD.steps[k]={s,t};detUp()}
 function ENGP(t,s){ENGS={s:s||'run',t};detUp()}
 function ENG(t,s){ENGP(t,s);dlog('Bộ đọc: '+t)}
-function dlog(s){const t=OCRD.t0?((Date.now()-OCRD.t0)/1000).toFixed(1):'0.0';OCRD.lines.unshift({t,s});if(OCRD.lines.length>80)OCRD.lines.pop();detUp()}
+function dlog(s){const e=!OCRD.t0,t=e?'':((Date.now()-OCRD.t0)/1000).toFixed(1);const o={t,s};OCRD.lines.unshift(o);if(OCRD.lines.length>80)OCRD.lines.pop();if(e||/^(Bộ đọc|Trình duyệt|WebAssembly|LỖI)/.test(s)){ENGL.unshift({t:'bộ đọc',s});if(ENGL.length>30)ENGL.pop()}detUp()}
+const newD=()=>({lines:ENGL.slice(),imgs:[],toks:[],steps:{},st:'',t0:Date.now(),iv:OCRD.iv+1,vt:''});
 function thumb(c,l){try{const k=Math.min(1,520/c.width),t=document.createElement('canvas');t.width=Math.round(c.width*k);t.height=Math.round(c.height*k);t.getContext('2d').drawImage(c,0,0,t.width,t.height);
  OCRD.imgs.unshift({l,u:t.toDataURL('image/jpeg',.75)});if(OCRD.imgs.length>3)OCRD.imgs.pop();OCRD.iv++}catch(e){}}
 function addTok(v,c,ok,why){const k=v+'|'+why,i=OCRD.toks.findIndex(x=>x.k===k);let o;if(i>=0){o=OCRD.toks.splice(i,1)[0];o.n++;o.c=Math.max(o.c,c)}else o={k,v,c,ok,why,n:1};OCRD.toks.unshift(o);if(OCRD.toks.length>12)OCRD.toks.pop()}
@@ -509,23 +510,29 @@ function detUp(){const g=$('lv-log');if(!g)return;
  $('lv-steps').innerHTML=STP.map(([k,n])=>{const x=k==='eng'?ENGS:(OCRD.steps[k]||{s:'wait',t:'chờ'});return`<div class="stp ${x.s}"><b>${ICO[x.s]}</b><span class="sn">${n}</span><span class="sv">${esc(x.t)}</span></div>`}).join('')+(ENGS.s==='bad'?'<button class="rtb" onclick="retryEng()">Thử tải lại bộ đọc</button>':'');
  $('lv-vt').textContent=OCRD.vt?' · ứng viên: '+OCRD.vt:'';
  $('lv-tok').innerHTML=OCRD.toks.length?OCRD.toks.map(o=>`<span class="tk ${o.ok?'ok':'bad'}"><b>${esc(o.v)}</b><small>${Math.round(o.c)}% · ${esc(o.why)}${o.n>1?' · ×'+o.n:''}</small></span>`).join(''):'<span class="mu">Chưa đọc được chữ nào</span>';
- g.innerHTML=OCRD.lines.map(o=>`<p class="${/✓ Chốt/.test(o.s)?'ok':/✗|LỖI/.test(o.s)?'bad':''}"><i>+${o.t}s</i> ${esc(o.s)}</p>`).join('');
+ g.innerHTML=OCRD.lines.map(o=>`<p class="${/✓ Chốt/.test(o.s)?'ok':/✗|LỖI/.test(o.s)?'bad':''}"><i>${/^\d/.test(o.t)?'+'+o.t+'s':o.t}</i> ${esc(o.s)}</p>`).join('');
  if(shownIv!==OCRD.iv){shownIv=OCRD.iv;$('lv-img').innerHTML=OCRD.imgs.length?OCRD.imgs.map(i=>`<figure><img src="${i.u}"><figcaption>${esc(i.l)}</figcaption></figure>`).join(''):'<span class="mu">Chưa có ảnh</span>'}}
 function retryEng(){tessP=null;worker().catch(()=>{})}
 const OUT={text:true,tsv:true,blocks:true};
-const SRC=[{n:'jsdelivr',lib:'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js',wp:'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js',cp:'https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.0',lp:'https://cdn.jsdelivr.net/npm/@tesseract.js-data/eng/4.0.0_fast'},
- {n:'unpkg',lib:'https://unpkg.com/tesseract.js@5.1.1/dist/tesseract.min.js',wp:'https://unpkg.com/tesseract.js@5.1.1/dist/worker.min.js',cp:'https://unpkg.com/tesseract.js-core@5.1.0',lp:'https://unpkg.com/@tesseract.js-data/eng@1.0.0/4.0.0_fast'}];
-const loadScript=(u,ms)=>new Promise((res,rej)=>{if(window.Tesseract)return res();const s=document.createElement('script'),tm=setTimeout(()=>{s.remove();rej(new Error('quá '+ms/1000+'s'))},ms);s.src=u;s.onload=()=>{clearTimeout(tm);res()};s.onerror=()=>{clearTimeout(tm);s.remove();rej(new Error('không tải được'))};document.head.appendChild(s)});
+const CDN=(h,pkg)=>({lib:h+'tesseract.js@5.1.1/dist/tesseract.min.js',wp:h+'tesseract.js@5.1.1/dist/worker.min.js',cp:h+'tesseract.js-core@5.1.0',lp:h+(pkg||'@tesseract.js-data/eng/4.0.0_fast')});
+const LOC=new URL('tess',location.href).href;
+const hasLocal=async()=>{try{const r=await fetch(LOC+'/eng.traineddata.gz',{method:'HEAD',cache:'no-store'});return r.ok}catch(e){return false}};
+const loadScript=(u,ms)=>new Promise((res,rej)=>{if(window.Tesseract)return res();const s=document.createElement('script'),tm=setTimeout(()=>{s.remove();rej(new Error('quá '+ms/1000+'s'))},ms);s.src=u;s.onload=()=>{clearTimeout(tm);res()};s.onerror=()=>{clearTimeout(tm);s.remove();rej(new Error('không tải được '+u.split('/')[2]))};document.head.appendChild(s)});
 const STN={'loading tesseract core':'đang tải lõi','initializing tesseract':'đang khởi tạo','loading language traineddata':'đang tải dữ liệu chữ','loaded language traineddata':'đã tải dữ liệu chữ','initializing api':'đang khởi tạo','initialized api':'xong','initialized tesseract':'xong'};
 function worker(){return tessP=tessP||(async()=>{let last;
+ dlog('Trình duyệt: '+navigator.userAgent.slice(0,110));dlog('WebAssembly: '+(typeof WebAssembly)+' · Worker: '+(typeof Worker)+' · mạng: '+(navigator.onLine?'có':'KHÔNG'));
+ const SRC=[];if(await hasLocal())SRC.push(Object.assign({n:'file trong app (tess/)'},{lib:LOC+'/tesseract.min.js',wp:LOC+'/worker.min.js',cp:LOC,lp:LOC}));
+ SRC.push(Object.assign({n:'jsdelivr'},CDN('https://cdn.jsdelivr.net/npm/')),Object.assign({n:'unpkg'},CDN('https://unpkg.com/','@tesseract.js-data/eng@1.0.0/4.0.0_fast')));
  for(let i=0;i<SRC.length;i++){const S=SRC[i];
   try{ENG('thử nguồn '+(i+1)+'/'+SRC.length+' ('+S.n+')…');
-   await loadScript(S.lib,20000);ENG('['+S.n+'] đã tải thư viện, đang tải dữ liệu…');
-   const w=await Promise.race([Tesseract.createWorker('eng',1,{workerPath:S.wp,corePath:S.cp,langPath:S.lp,logger:m=>{if(m&&m.status){const p=m.progress>=0&&m.progress<=1?' '+Math.round(m.progress*100)+'%':'';ENGP('['+S.n+'] '+(STN[m.status]||m.status)+p)}}}),new Promise((_,rj)=>setTimeout(()=>rj(new Error('tải dữ liệu quá 45s')),45000))]);
+   await loadScript(S.lib,25000);ENG('['+S.n+'] đã tải thư viện, đang khởi động bộ đọc…');
+   let lastP=Date.now(),lastSt='';
+   const w=await new Promise((res,rej)=>{const iv=setInterval(()=>{if(Date.now()-lastP>30000){clearInterval(iv);rej(new Error('đứng 30s không tiến triển ở bước: '+ENGS.t))}},1000);
+    Tesseract.createWorker('eng',1,{workerPath:S.wp,corePath:S.cp,langPath:S.lp,cacheMethod:'none',errorHandler:e=>{clearInterval(iv);rej(new Error('lỗi trong bộ đọc: '+(e&&e.message||e)))},logger:m=>{lastP=Date.now();if(m&&m.status){const nm=STN[m.status]||m.status,p=m.progress>=0&&m.progress<=1?' '+Math.round(m.progress*100)+'%':'';ENGP('['+S.n+'] '+nm+p);if(nm!==lastSt){lastSt=nm;dlog('Bộ đọc ['+S.n+']: '+nm)}}}}).then(x=>{clearInterval(iv);res(x)},e=>{clearInterval(iv);rej(e)})});
    await w.setParameters({tessedit_char_whitelist:'0123456789',tessedit_pageseg_mode:'11',user_defined_dpi:'300'});curPsm='11';
    ENG('sẵn sàng ('+S.n+')','ok');return w}
   catch(e){last=e;ENG('LỖI nguồn '+S.n+': '+(e&&e.message||e),i<SRC.length-1?'run':'bad')}}
- throw last||new Error('không tải được bộ đọc')})().catch(e=>{tessP=null;ENG('LỖI: '+(e&&e.message||e)+' (kiểm tra mạng)','bad');throw e})}
+ throw last||new Error('không tải được bộ đọc')})().catch(e=>{tessP=null;ENG('LỖI: '+(e&&e.message||e),'bad');throw e})}
 setTimeout(()=>{try{warm()}catch(e){}},800);
 const warm=()=>{if(!(CFG.ocrTest||CFG.ocrScan)||tessP)return;worker().catch(()=>{})};
 const workerT=()=>worker();
@@ -558,7 +565,7 @@ function ocrCancel(){ocrCtl.tok++;ocrCtl.code='';ocrSt('')}
 /* Đọc theo cách app Android: cùng khung hình với barcode, không bắt buộc có trong danh mục, chốt khi 2 khung hình trùng nhau.
    Tự dừng khi barcode ra khỏi khung hoặc khi quét mã khác – không bao giờ làm treo việc quét. */
 async function doOCR(bc,box,needData,my){OCRLOG='';
- OCRD={lines:[],imgs:[],toks:[],steps:{},st:'',t0:Date.now(),iv:OCRD.iv+1,vt:''};shownIv=-1;
+ OCRD=newD();shownIv=-1;
  const dead=()=>my!==ocrCtl.tok,vw=v.videoWidth,vh=v.videoHeight;if(!vw||!stream){dlog('✗ Camera chưa sẵn sàng');return''}
  dlog('Bắt đầu đọc 7 số cho mã vạch '+bc);dlog('Camera '+vw+'×'+vh+(box?' · mã vạch x='+Math.round(box.x)+' y='+Math.round(box.y)+' '+Math.round(box.w)+'×'+Math.round(box.h):' · không có khung mã vạch'));
  if(TD===null){try{TD='TextDetector' in window?new TextDetector():false}catch(e){TD=false}}
@@ -616,7 +623,7 @@ let showSeq=0;
 function drawBc(){try{const b=$('bc');b&&JsBarcode(b,b.dataset.v,{format:'EAN13',height:60,displayValue:false,margin:0,width:2})}catch(e){const b=$('bc');b&&b.remove()}}
 async function showP(c,box){const seq=++showSeq,is13=/^\d{13}$/.test(c);let L=lookup(c),tried=false;clearTimeout(idleT);$('pq').value='';$('pq').blur();
  if(!L.found&&!L.sku&&is13&&CFG.ocrTest&&box&&stream){tried=true;$('pinfo').textContent='MÃ VẠCH: '+c+' | đang đọc mã 7 số…';
-  OCRD={lines:[],imgs:[],toks:[],steps:{},st:'',t0:Date.now(),iv:OCRD.iv+1,vt:''};$('pout').innerHTML=card(L)+detHTML();shownIv=-1;detUp();drawBc();
+  OCRD=newD();$('pout').innerHTML=card(L)+detHTML();shownIv=-1;detUp();drawBc();
   const sku=await resolve7(c,box,false);if(seq!==showSeq)return;dlog(sku?'✓ KẾT QUẢ: đọc được SKU '+sku:'✗ Không đọc được 7 số – '+(OCRLOG||'hết thời gian'));if(sku){rememberSku(c,sku);L=lookup(c);L.viaOcr=true}}
  scanning=false;$('cam2').style.display='none';idleT=setTimeout(stopCam,20000);
  $('pinfo').textContent=`MÃ VẠCH: ${is13?c:(L.cat&&L.cat.b)||'-'} | SKU: ${L.sku||'-'}${L.viaOcr?' (đọc từ tem)':''}`;
