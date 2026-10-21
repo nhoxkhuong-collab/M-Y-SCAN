@@ -500,7 +500,7 @@ const ICO={ok:'✓',bad:'✗',run:'…',wait:'○'};
 function stp(k,s,t){OCRD.steps[k]={s,t};detUp()}
 function ENGP(t,s){ENGS={s:s||'run',t};detUp()}
 function ENG(t,s){ENGP(t,s);dlog('Bộ đọc: '+t)}
-function dlog(s){const e=!OCRD.t0,t=e?'':((Date.now()-OCRD.t0)/1000).toFixed(1);const o={t,s};OCRD.lines.unshift(o);if(OCRD.lines.length>80)OCRD.lines.pop();if(e||/^(Bộ đọc|Trình duyệt|WebAssembly|LỖI)/.test(s)){ENGL.unshift({t:'bộ đọc',s});if(ENGL.length>30)ENGL.pop()}detUp()}
+function dlog(s){const e=!OCRD.t0,t=e?'':((Date.now()-OCRD.t0)/1000).toFixed(1);const o={t,s};OCRD.lines.unshift(o);if(OCRD.lines.length>80)OCRD.lines.pop();if(e||/^(Bộ đọc|Dữ liệu|Trình duyệt|WebAssembly|LỖI)/.test(s)){ENGL.unshift({t:'bộ đọc',s});if(ENGL.length>30)ENGL.pop()}detUp()}
 const newD=()=>({lines:ENGL.slice(),imgs:[],toks:[],steps:{},st:'',t0:Date.now(),iv:OCRD.iv+1,vt:''});
 function thumb(c,l){try{const k=Math.min(1,520/c.width),t=document.createElement('canvas');t.width=Math.round(c.width*k);t.height=Math.round(c.height*k);t.getContext('2d').drawImage(c,0,0,t.width,t.height);
  OCRD.imgs.unshift({l,u:t.toDataURL('image/jpeg',.75)});if(OCRD.imgs.length>3)OCRD.imgs.pop();OCRD.iv++}catch(e){}}
@@ -514,21 +514,28 @@ function detUp(){const g=$('lv-log');if(!g)return;
  if(shownIv!==OCRD.iv){shownIv=OCRD.iv;$('lv-img').innerHTML=OCRD.imgs.length?OCRD.imgs.map(i=>`<figure><img src="${i.u}"><figcaption>${esc(i.l)}</figcaption></figure>`).join(''):'<span class="mu">Chưa có ảnh</span>'}}
 function retryEng(){tessP=null;worker().catch(()=>{})}
 const OUT={text:true,tsv:true,blocks:true};
-const CDN=(h,pkg)=>({lib:h+'tesseract.js@5.1.1/dist/tesseract.min.js',wp:h+'tesseract.js@5.1.1/dist/worker.min.js',cp:h+'tesseract.js-core@5.1.0',lp:h+(pkg||'@tesseract.js-data/eng/4.0.0_fast')});
+const CDN=h=>({lib:h+'tesseract.js@5.1.1/dist/tesseract.min.js',wp:h+'tesseract.js@5.1.1/dist/worker.min.js',cp:h+'tesseract.js-core@5.1.0'});
 const LOC=new URL('tess',location.href).href;
-const hasLocal=async()=>{try{const r=await fetch(LOC+'/eng.traineddata.gz',{method:'HEAD',cache:'no-store'});return r.ok}catch(e){return false}};
+const LANGS=[LOC,'https://tessdata.projectnaptha.com/4.0.0_fast','https://cdn.jsdelivr.net/npm/@tesseract.js-data/eng@1.0.0/4.0.0_best_int','https://cdn.jsdelivr.net/npm/@tesseract.js-data/eng@1.0.0/4.0.0','https://unpkg.com/@tesseract.js-data/eng@1.0.0/4.0.0_best_int','https://tessdata.projectnaptha.com/4.0.0'];
+let LANGP='';
+async function pickLang(){if(LANGP)return LANGP;
+ for(const u of LANGS){const nm=u.split('/')[2]+'/…/'+u.split('/').pop();
+  try{const c=new AbortController(),tm=setTimeout(()=>c.abort(),8000),r=await fetch(u+'/eng.traineddata.gz',{signal:c.signal,cache:'no-store'});clearTimeout(tm);c.abort();dlog('Dữ liệu chữ '+nm+': HTTP '+r.status);if(r.ok){LANGP=u;ENGP('chọn dữ liệu chữ: '+nm);return u}}
+  catch(e){dlog('Dữ liệu chữ '+nm+': '+(e&&e.message||e))}}
+ throw new Error('không nguồn dữ liệu chữ nào tải được')}
 const loadScript=(u,ms)=>new Promise((res,rej)=>{if(window.Tesseract)return res();const s=document.createElement('script'),tm=setTimeout(()=>{s.remove();rej(new Error('quá '+ms/1000+'s'))},ms);s.src=u;s.onload=()=>{clearTimeout(tm);res()};s.onerror=()=>{clearTimeout(tm);s.remove();rej(new Error('không tải được '+u.split('/')[2]))};document.head.appendChild(s)});
 const STN={'loading tesseract core':'đang tải lõi','initializing tesseract':'đang khởi tạo','loading language traineddata':'đang tải dữ liệu chữ','loaded language traineddata':'đã tải dữ liệu chữ','initializing api':'đang khởi tạo','initialized api':'xong','initialized tesseract':'xong'};
 function worker(){return tessP=tessP||(async()=>{let last;
  dlog('Trình duyệt: '+navigator.userAgent.slice(0,110));dlog('WebAssembly: '+(typeof WebAssembly)+' · Worker: '+(typeof Worker)+' · mạng: '+(navigator.onLine?'có':'KHÔNG'));
- const SRC=[];if(await hasLocal())SRC.push(Object.assign({n:'file trong app (tess/)'},{lib:LOC+'/tesseract.min.js',wp:LOC+'/worker.min.js',cp:LOC,lp:LOC}));
- SRC.push(Object.assign({n:'jsdelivr'},CDN('https://cdn.jsdelivr.net/npm/')),Object.assign({n:'unpkg'},CDN('https://unpkg.com/','@tesseract.js-data/eng@1.0.0/4.0.0_fast')));
+ const SRC=[Object.assign({n:'jsdelivr'},CDN('https://cdn.jsdelivr.net/npm/')),Object.assign({n:'unpkg'},CDN('https://unpkg.com/'))];
+ ENG('đang chọn nguồn dữ liệu chữ…');const lp=await pickLang();
+ if(lp===LOC)SRC.unshift({n:'file trong app (tess/)',lib:LOC+'/tesseract.min.js',wp:LOC+'/worker.min.js',cp:LOC});
  for(let i=0;i<SRC.length;i++){const S=SRC[i];
   try{ENG('thử nguồn '+(i+1)+'/'+SRC.length+' ('+S.n+')…');
    await loadScript(S.lib,25000);ENG('['+S.n+'] đã tải thư viện, đang khởi động bộ đọc…');
    let lastP=Date.now(),lastSt='';
    const w=await new Promise((res,rej)=>{const iv=setInterval(()=>{if(Date.now()-lastP>30000){clearInterval(iv);rej(new Error('đứng 30s không tiến triển ở bước: '+ENGS.t))}},1000);
-    Tesseract.createWorker('eng',1,{workerPath:S.wp,corePath:S.cp,langPath:S.lp,cacheMethod:'none',errorHandler:e=>{clearInterval(iv);rej(new Error('lỗi trong bộ đọc: '+(e&&e.message||e)))},logger:m=>{lastP=Date.now();if(m&&m.status){const nm=STN[m.status]||m.status,p=m.progress>=0&&m.progress<=1?' '+Math.round(m.progress*100)+'%':'';ENGP('['+S.n+'] '+nm+p);if(nm!==lastSt){lastSt=nm;dlog('Bộ đọc ['+S.n+']: '+nm)}}}}).then(x=>{clearInterval(iv);res(x)},e=>{clearInterval(iv);rej(e)})});
+    Tesseract.createWorker('eng',1,{workerPath:S.wp,corePath:S.cp,langPath:lp,cacheMethod:'none',errorHandler:e=>{clearInterval(iv);rej(new Error('lỗi trong bộ đọc: '+(e&&e.message||e)))},logger:m=>{lastP=Date.now();if(m&&m.status){const nm=STN[m.status]||m.status,p=m.progress>=0&&m.progress<=1?' '+Math.round(m.progress*100)+'%':'';ENGP('['+S.n+'] '+nm+p);if(nm!==lastSt){lastSt=nm;dlog('Bộ đọc ['+S.n+']: '+nm)}}}}).then(x=>{clearInterval(iv);res(x)},e=>{clearInterval(iv);rej(e)})});
    await w.setParameters({tessedit_char_whitelist:'0123456789',tessedit_pageseg_mode:'11',user_defined_dpi:'300'});curPsm='11';
    ENG('sẵn sàng ('+S.n+')','ok');return w}
   catch(e){last=e;ENG('LỖI nguồn '+S.n+': '+(e&&e.message||e),i<SRC.length-1?'run':'bad')}}
